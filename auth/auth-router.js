@@ -5,6 +5,10 @@ const jwt = require('jsonwebtoken')
 const Users = require('../users/usersModel');
 const jwt_secrets = require('../config/secrets.js')
 
+router.get('/', (req, res) => {
+  res.status(200).json({ message: "working" })
+})
+
 router.post('/register', async (req, res) => {
   let user = req.body
   const hash = bcrypt.hashSync(user.password, 10)
