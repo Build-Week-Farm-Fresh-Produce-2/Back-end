@@ -6,6 +6,6 @@
   ],
   "routes": [
     {"src": "./api/server.js", "dest": "/api"},
-    {"src": "./auth/auth-router.js", "dest": "api/auth"}
+    {"src": "./auth/auth-router.js", "dest": "/api/auth"}
   ]
 }
