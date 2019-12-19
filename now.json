@@ -1,7 +1,11 @@
 {
   "version": 2,
-  "name": "nodejs",
+  "name": "farm-fresh",
   "builds": [
-      { "src": "index.js", "use": "@now/node" }
+      { "src": "*.js", "use": "@now/node" }
+  ],
+  "routes": [
+    {"src": "./api/server.js", "dest": "/api"},
+    {"src": "./auth/auth-router.js", "dest": "api/auth"}
   ]
 }
