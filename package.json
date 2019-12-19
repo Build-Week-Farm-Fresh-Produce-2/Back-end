@@ -6,8 +6,8 @@
   "repository": "https://github.com/Build-Week-Farm-Fresh-Produce-2/Back-end",
   "author": "Dave Kane <davelkane@gmail.com>",
   "scripts": {
-    "start": "pm2 ./api/index.js --exec babel-node",
-    "dev": "nodemon ./api/index.js DB_ENV=development --exec babel-node",
+    "start": "pm2 index.js --exec babel-node",
+    "dev": "nodemon index.js DB_ENV=development --exec babel-node",
     "test": "cross-env DB_ENV=testing jest --watch"
   },
   "dependencies": {
