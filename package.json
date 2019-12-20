@@ -6,7 +6,7 @@
   "repository": "https://github.com/Build-Week-Farm-Fresh-Produce-2/Back-end",
   "author": "Dave Kane <davelkane@gmail.com>",
   "scripts": {
-    "start": "pm2 index.js",
+    "start": "pm2 start index.js",
     "dev": "nodemon index.js DB_ENV=development --exec babel-node",
     "test": "cross-env DB_ENV=testing jest --watch"
   },
@@ -23,6 +23,7 @@
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.20.4",
     "pg": "^7.15.1",
+    "pm2": "^4.2.1",
     "sqlite3": "^4.1.1"
   },
   "devDependencies": {
