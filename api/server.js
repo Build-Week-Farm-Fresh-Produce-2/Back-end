@@ -13,7 +13,7 @@ const server = express();
 server.use(helmet());
 server.use(cors());
 server.use(express.json());
-server.use(morgan("dev"))
+// server.use(morgan("dev"))
 
 server.use('/api/auth', authRouter);
 server.use('/api/users', authMiddleware, usersRouter)
