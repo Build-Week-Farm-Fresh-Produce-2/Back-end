@@ -32,7 +32,8 @@ module.exports = {
   },
   production: {
     client: 'pg',
-    connection: { pool },
+    connection: { filename: './data/farm_fresh.db3' },
+    // connection: { pool },
     useNullAsDefault: true,
     migrations: {
       directory: './data/migrations',
