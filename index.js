@@ -1,10 +1,4 @@
 require('dotenv').config();
-const { Pool } = require('pg')
-
-const pool = new Pool({
-  connenctionSring: process.env.DATABASE_URL,
-  ssl: true
-})
 
 const server = require('./api/server');
 

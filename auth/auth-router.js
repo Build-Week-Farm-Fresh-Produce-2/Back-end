@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
+const regeneratorRuntime = require('regenerator-runtime')
 
 const Users = require('../users/usersModel');
 const jwt_secrets = require('../config/secrets.js')
@@ -24,7 +25,6 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   const { username, password } = req.body
-  console.log(req.body)
   try {
     const user = await Users.findBy({ username }).first()
     if (user && bcrypt.compareSync(password, user.password)) {
