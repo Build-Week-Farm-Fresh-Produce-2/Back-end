@@ -1,3 +1,11 @@
+const { Pool } = require('pg');
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true
+});
+
+
 module.exports = {
   development: {
     client: 'sqlite3',
@@ -23,8 +31,8 @@ module.exports = {
     }
   },
   production: {
-    client: 'sqlite3',
-    connection: { filename: './data/farm_fresh.db3' },
+    client: 'pg',
+    connection: { pool },
     useNullAsDefault: true,
     migrations: {
       directory: './data/migrations',
@@ -33,3 +41,4 @@ module.exports = {
     seeds: { directory: './data/seeds' },
   }
 };
+

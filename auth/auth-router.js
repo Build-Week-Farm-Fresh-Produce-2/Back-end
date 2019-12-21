@@ -24,6 +24,7 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   const { username, password } = req.body
+  console.log(req.body)
   try {
     const user = await Users.findBy({ username }).first()
     if (user && bcrypt.compareSync(password, user.password)) {
@@ -48,7 +49,7 @@ function genToken(user) {
   const payload = {
     userId: user.id,
     username: user.username,
-    department: user.type
+    type: user.type
 
   }
   const secret = jwt_secrets.jwtSecret
