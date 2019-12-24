@@ -1,7 +1,7 @@
 exports.up = function(knex) {
   return (
     knex.schema
-      .createTable('user_cart', uc => {
+      .createTable('user_inventory', uc => {
         uc.increments()
         uc.integer('user_id')
           .notNullable()
@@ -9,20 +9,22 @@ exports.up = function(knex) {
           .references('user.id')
           .onDelete('CASCADE')
           .onUpdate('CASCADE')
-        uc.integer('cart_item_id')
+        uc.integer('inventory_item_id')
           .notNullable()
           .unique()
-          .references('cart_item.id')
-          .onDelete('CASCADE')
-          .onUpdate('CASCADE')
-      })
-      .createTable('cart_item', ci => {
-        ci.increments()
-        ci.integer('inventory_item_id')
-          .notNullable()
           .references('inventory_item.id')
           .onDelete('CASCADE')
           .onUpdate('CASCADE')
+      })
+      .createTable('inventory_item', ci => {
+        ci.increments()
+        ci.integer('produce_id')
+          .notNullable()
+          .references('produce.id')
+          .onDelete('CASCADE')
+          .onUpdate('CASCADE')
+        ci.string('user_description', 255)
+        ci.string('item_name', 255)
         ci.integer('quantity')
           .notNullable()
       })
@@ -32,7 +34,7 @@ exports.up = function(knex) {
 exports.down = function(knex) {
   return (
     knex.schema
-      .dropTableIfExists('user_cart')
-      .dropTableIfExists('cart_item')
+      .dropTableIfExists('user_inventory')
+      .dropTableIfExists('inventory_item')
   )
 };
