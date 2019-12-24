@@ -1,21 +1,6 @@
 exports.up = function(knex) {
   return (
     knex.schema
-      .createTable('user_inventory', uc => {
-        uc.increments()
-        uc.integer('user_id')
-          .notNullable()
-          .unique()
-          .references('user.id')
-          .onDelete('CASCADE')
-          .onUpdate('CASCADE')
-        uc.integer('inventory_item_id')
-          .notNullable()
-          .unique()
-          .references('inventory_item.id')
-          .onDelete('CASCADE')
-          .onUpdate('CASCADE')
-      })
       .createTable('inventory_item', ci => {
         ci.increments()
         ci.integer('produce_id')
@@ -34,7 +19,6 @@ exports.up = function(knex) {
 exports.down = function(knex) {
   return (
     knex.schema
-      .dropTableIfExists('user_inventory')
       .dropTableIfExists('inventory_item')
   )
 };
