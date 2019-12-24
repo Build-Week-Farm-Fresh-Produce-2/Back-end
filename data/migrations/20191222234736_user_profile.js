@@ -30,11 +30,8 @@ exports.up = function(knex) {
         up.string('last_name', 255)
           .notNullable()
         up.boolean('is_grower', false)
-        up.integer('location_id')
-          .unique()
-          .references('location.id')        
-          .onDelete('CASCADE')
-          .onUpdate('CASCADE')
+        up.string('email', 255)
+          .notNullable()
       })
   )
 };
