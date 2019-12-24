@@ -854,13 +854,6 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@now/node@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@now/node/-/node-1.3.0.tgz#9fe614114a4207600820d9c3398f51e7297c4d9b"
-  integrity sha512-tkEKrxSh7XMx6HmN6j55HfuJKZ+DzlxWP0Xg728Oe2qXyxpvfDhQFYNyRzU7kN9UaGXJ+MAL5zQ8p3dqCQxMnA==
-  dependencies:
-    "@types/node" "*"
-
 "@opencensus/core@^0.0.8":
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/@opencensus/core/-/core-0.0.8.tgz#df01f200c2d2fbfe14dae129a1a86fb87286db92"
@@ -1005,11 +998,6 @@
   dependencies:
     "@types/istanbul-lib-coverage" "*"
     "@types/istanbul-lib-report" "*"
-
-"@types/node@*":
-  version "12.12.21"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.21.tgz#aa44a6363291c7037111c47e4661ad210aded23f"
-  integrity sha512-8sRGhbpU+ck1n0PGAUgVrWrWdjSW2aqNeyC15W88GRsMpSwzv6RJGlLhE7s2RhVSOdyDmxbqlWSeThq4/7xqlA==
 
 "@types/stack-utils@^1.0.1":
   version "1.0.1"

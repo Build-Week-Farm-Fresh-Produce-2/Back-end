@@ -1,7 +1,7 @@
 
 const server = require('./server')
 const request = require('supertest')
-const regeneratorRuntime = require('regenerator-runtime')
+require('regenerator-runtime')
 
 describe('server.js', () => {
   test('should be the testing enviornment', () => {

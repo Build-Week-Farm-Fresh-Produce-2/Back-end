@@ -1,9 +1,4 @@
-// const { Pool } = require('pg');
-
-// const pool = new Pool({
-//   connectionString: process.env.DATABASE_URL,
-//   ssl: true
-// });
+require('dotenv').config()
 
 
 module.exports = {
@@ -32,8 +27,7 @@ module.exports = {
   },
   production: {
     client: 'pg',
-    connection: { filename: './data/farm_fresh.db3' },
-    // connection: { pool },
+    connection: process.env.DATABASE_URL,
     useNullAsDefault: true,
     migrations: {
       directory: './data/migrations',
