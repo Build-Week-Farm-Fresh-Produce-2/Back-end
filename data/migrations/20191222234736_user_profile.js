@@ -2,6 +2,21 @@
 exports.up = function(knex) {
   return (
     knex.schema
+      .createTable('location', l => {
+        l.increments()
+        l.integer('user_id')
+          .notNullable()
+          .unique()
+          .references('user.id')        
+          .onDelete('CASCADE')
+          .onUpdate('CASCADE')
+        l.integer('addr_no')
+        l.string('street')
+        l.string('city')
+        l.string('state')
+        l.integer('zip_code')
+        l.string('geo-location')
+      })
       .createTable('user_profile', up => {
         up.increments()
         up.integer('user_id')
@@ -20,22 +35,6 @@ exports.up = function(knex) {
           .references('location.id')        
           .onDelete('CASCADE')
           .onUpdate('CASCADE')
-        })
-      .createTable('location', l => {
-        l.increments()
-        l.integer('user_id')
-          .notNullable()
-          .unique()
-          .references('user.id')        
-          .onDelete('CASCADE')
-          .onUpdate('CASCADE')
-        l.integer('addr_no')
-        l.string('street')
-        l.string('city')
-        l.string('state')
-        l.integer('zip_code')
-        l.string('geo-location')
-
       })
   )
 };
