@@ -12,7 +12,6 @@ exports.up = function(knex) {
           .unique()
         p.string('unit_of_measure', 255)
           .notNullable()
-          .unique()
         p.string('default_img', 255)
       })
   )
