@@ -6,7 +6,7 @@
   "repository": "https://github.com/Build-Week-Farm-Fresh-Produce-2/Back-end",
   "author": "Dave Kane <davelkane@gmail.com>",
   "scripts": {
-    "start": "cross-env DB_ENV=production node index.js --exec babel-node",
+    "start": "cross-env DB_ENV=production babel-node index.js ",
     "dev": "cross-env DB_ENV=development nodemon index.js --exec babel-node",
     "test": "cross-env DB_ENV=testing jest --watch"
   },
