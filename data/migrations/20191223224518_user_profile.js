@@ -29,6 +29,7 @@ exports.up = function(knex) {
         up.string('last_name', 255)
           .notNullable()
         up.boolean('is_grower', false)
+          .notNullable()
         up.string('email', 255)
           .notNullable()
       })

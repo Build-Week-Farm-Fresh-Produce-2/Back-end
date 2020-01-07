@@ -8,7 +8,9 @@ exports.seed = function(knex) {
       return knex('user').insert([
         {id: 1, username: 'Billy', password: "password"},
         {id: 2, username: 'Bonnie', password: "password"},
-        {id: 3, username: 'Bobby', password: "password"}
+        {id: 3, username: 'Bobby', password: "password"},
+        {id: 4, username: 'Barry', password: "password"},
+        {id: 5, username: 'Boyd', password: "password"}
       ]);
     });
 };
