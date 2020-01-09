@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
-  const { id } = req.body
+  const id = req.params.id
   let user = await Users.findById(id)
   const profile = await Users.findProfile(id)
   const location = await Users.findLocation(id)
