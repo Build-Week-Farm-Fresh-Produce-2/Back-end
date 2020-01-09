@@ -32,21 +32,16 @@ function findById(id) {
 async function findProfile(id) {
   const profiles = await db('user_profile')
     
-  return profiles
-    .filter(u => u.user_id === id)
-    // const profile = profiles.reduce((p, u) => {
-      //   if (u.user_id == id) {
-        //     p.push(u)
-        //   }
-        //   return p
-        // }, [])
-        // return profile
-        
+  const profile = profiles
+    .filter(u => u.user_id == id)[0]
+  
+  return { ...profile, is_grower: !!profile.is_grower }
+   
 }
       
 async function findLocation(id) {
   const location = await db('location')
     
   return location
-    .filter(u => u.user_id === id)
+    .filter(u => u.user_id == id)[0]
 }
