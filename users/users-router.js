@@ -15,4 +15,10 @@ router.get('/:id', async (req, res) => {
   res.status(200).json({ ...user, profile: profile, location: location })
 })
 
+router.get('/:id/cart', async (req, res) => {
+  const id = req.params.id
+  const user = await Users.findById(id)
+  const cart = await Users.findCartById(id)
+  res.status(200).json({ userId: user.id, cart: cart })
+})
 module.exports = router
