@@ -5,6 +5,8 @@ module.exports = {
   find,
   findBy,
   findById,
+  findProfile,
+  findLocation
 };
 
 function find() {
@@ -25,4 +27,26 @@ function findById(id) {
   return db('user')
     .where({ id })
     .first();
+}
+
+async function findProfile(id) {
+  const profiles = await db('user_profile')
+    
+  return profiles
+    .filter(u => u.user_id === id)
+    // const profile = profiles.reduce((p, u) => {
+      //   if (u.user_id == id) {
+        //     p.push(u)
+        //   }
+        //   return p
+        // }, [])
+        // return profile
+        
+}
+      
+async function findLocation(id) {
+  const location = await db('location')
+    
+  return location
+    .filter(u => u.user_id === id)
 }
