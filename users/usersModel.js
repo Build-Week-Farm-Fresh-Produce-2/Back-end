@@ -6,7 +6,8 @@ module.exports = {
   findBy,
   findById,
   findProfile,
-  findLocation
+  findLocation,
+  findCartById
 };
 
 function find() {
@@ -44,4 +45,24 @@ async function findLocation(id) {
     
   return location
     .filter(u => u.user_id == id)[0]
+}
+
+async function findCartById(id) {
+  // const cartItems = await db('cart_item')
+  const userCart = await db('user_cart')
+  const cartItems = await db('cart_item')
+  const inventoryItems = await db('inventory_item')
+  const userCartItems = userCart.map(uc => {
+    let items = []
+    inventoryItems.map(ii => {
+      cartItems.map(ci => {
+        if (uc.user_id == id && uc.cart_item_id == ci.id && ci.inventory_item_id == ii.id) {
+          items.push({ ...ii, quantity: ci.quantity })
+        }
+      })
+    })
+    return items
+  })
+    
+  return userCartItems.flat()
 }
