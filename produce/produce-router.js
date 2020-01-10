@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const Produce = require('../users/produceModel');
+const Produce = require('../produce/produceModel');
 
 router.get('/', async (req, res) => {
   const produce = await Produce.find()
