@@ -10,7 +10,7 @@ module.exports = {
 };
 
 function find() {
-  return db('inventory_item').select('id', 'name', 'description');
+  return db('inventory_item');
 }
 
 function findBy(filter) {
