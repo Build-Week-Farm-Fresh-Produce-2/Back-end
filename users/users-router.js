@@ -15,6 +15,13 @@ router.get('/:id', async (req, res) => {
   res.status(200).json({ ...user, profile: profile, location: location })
 })
 
+router.delete('/:id', async (req, res) => {
+  const id = req.params.id
+  const user = await Users.findById(id)
+  await Users.del(id)
+  res.status(200).json(({ message: `User with the ID of ${user.id} has been removed` }))
+})
+
 router.get('/:id/cart', async (req, res) => {
   const id = req.params.id
   const user = await Users.findById(id)

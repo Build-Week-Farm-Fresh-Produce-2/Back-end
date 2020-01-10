@@ -2,6 +2,7 @@ const db = require('../data/dbConfig');
 
 module.exports = {
   add,
+  del,
   find,
   findBy,
   findById,
@@ -21,8 +22,12 @@ function findBy(filter) {
 
 async function add(user) {
   const id = await db('user').insert(user);
-  return id[0]
-   
+  return id[0]   
+}
+
+async function del(id) {
+  const userCount = await db('user').where('id', id).del();
+  return userCount
 }
 
 function findById(id) {
