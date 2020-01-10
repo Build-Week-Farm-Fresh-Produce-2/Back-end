@@ -7,7 +7,8 @@ module.exports = {
   findById,
   findProfile,
   findLocation,
-  findCartById
+  findCartById,
+  findInventoryById
 };
 
 function find() {
@@ -65,4 +66,20 @@ async function findCartById(id) {
   })
     
   return userCartItems.flat()
+}
+
+async function findInventoryById(id) {
+  const userInventory = await db('user_inventory')
+  const inventoryItems = await db('inventory_item')
+  const userInventoryItems = userInventory.map(ui => {
+    let items = []
+    inventoryItems.map(ii => {
+      if (ui.user_id == id && ui.inventory_item_id == ii.id) {
+        items.push(ii)
+      }
+    })
+    return items
+  })
+    
+  return userInventoryItems.flat()
 }
