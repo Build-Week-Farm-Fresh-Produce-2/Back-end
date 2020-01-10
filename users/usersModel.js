@@ -42,7 +42,7 @@ async function findProfile(id) {
   const profile = profiles
     .filter(u => u.user_id == id)[0]
   
-  return { ...profile, is_grower: !!profile.is_grower }
+  return { ...profile, is_grower: profile.is_grower }
    
 }
       
