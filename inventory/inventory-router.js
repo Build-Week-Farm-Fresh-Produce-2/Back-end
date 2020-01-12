@@ -15,9 +15,9 @@ router.get('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   const id = req.params.id
-  let produce = await Produce.findById(id)
-  await Produce.del(id)
-  res.status(200).json(({ message: `Produce Item with the ID of ${produce.id} has been removed` }))
+  let inventory = await Inventory.findById(id)
+  await Inventory.del(id)
+  res.status(200).json(({ message: `Inventory Item with the ID of ${inventory.id} has been removed` }))
 })
 
 router.put('/:id', async (req, res) => {
