@@ -27,11 +27,15 @@ router.put('/:id', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-  console.log(req.body)
-  const newItem = req.body
-  console.log(newItem)
-  const addedItem = await Inventory.add(newItem)
-  res.status(200).json(addedItem)
+  try {
+    console.log(req.body)
+    const newItem = req.body
+    console.log(newItem)
+    const addedItem = await Inventory.add(newItem)
+    res.status(200).json(addedItem)
+  } catch (err) {
+    res.status(500).json({ errormESSAGE: ERR })
+  }
 })
 
 module.exports = router
