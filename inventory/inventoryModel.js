@@ -25,7 +25,7 @@ async function add(item) {
     const userInventoryItem = { user_id: item.user_id, inventory_item_id: id[0] }
     console.log('userInventoryItem:', userInventoryItem)
     await db('user_inventory').insert(userInventoryItem)
-    const newItem = db('inventory_item').where('id', id).first()
+    const newItem = db('inventory_item').where('id', id)
     console.log('newItem:', newItem)
     const returnedItem = { ...userInventoryItem, item: newItem }
     return returnedItem
