@@ -27,6 +27,7 @@ router.put('/:id', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
+  console.log(req.body)
   const newItem = req.body
   console.log(newItem)
   const addedItem = await Inventory.add(newItem)
