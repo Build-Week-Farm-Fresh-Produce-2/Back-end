@@ -20,7 +20,8 @@ function findBy(filter) {
 async function add(item) {
   try {
     const filteredItem = filteredObj(item, "user_id")
-    const id = await db('inventory_item').insert(filteredItem);
+    const id = await db('inventory_item').insert(filteredItem); 
+    console.log('id:', id)
     const userInventoryItem = { user_id: item.user_id, inventory_item_id: id[0] }
     await db('user_inventory').insert(userInventoryItem)
     const newItem = db('inventory_item').where('id', id).first()
