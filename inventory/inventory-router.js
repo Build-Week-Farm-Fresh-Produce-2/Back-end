@@ -26,7 +26,7 @@ router.put('/:id', async (req, res) => {
   res.status(200).json(inventory)
 })
 
-router.post('/:id', async (req, res) => {
+router.post('/', async (req, res) => {
   const newItem = JSON.parse(req.body)
   console.log(newItem)
   const addedItem = await Inventory.add(newItem)
