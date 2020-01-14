@@ -18,13 +18,17 @@ function findBy(filter) {
 }
 
 async function add(item) {
-  const filteredItem = filteredObj(item, "user_id")
-  const id = await db('inventory_item').insert(filteredItem);
-  const userInventoryItem = { user_id: item.user_id, inventory_item_id: id[0] }
-  await db('user_inventory').insert(userInventoryItem)
-  const newItem = db('inventory_item').where('id', id).first()
-  const returnedItem = { ...userInventoryItem, item: newItem }
-  return returnedItem
+  try {
+    const filteredItem = filteredObj(item, "user_id")
+    const id = await db('inventory_item').insert(filteredItem);
+    const userInventoryItem = { user_id: item.user_id, inventory_item_id: id[0] }
+    await db('user_inventory').insert(userInventoryItem)
+    const newItem = db('inventory_item').where('id', id).first()
+    const returnedItem = { ...userInventoryItem, item: newItem }
+    return returnedItem
+  } catch (err) {
+    res.status(500).json({errorMessage: err})
+  }
 }
 
 function filteredObj(obj, prop) {
@@ -33,7 +37,7 @@ function filteredObj(obj, prop) {
     if (key !== prop) {
       newObj[key] = obj[key]
     }
-    console.log(newObj)
+    // console.log(newObj)
   }
   return newObj
 }
