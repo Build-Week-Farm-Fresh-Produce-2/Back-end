@@ -28,10 +28,11 @@ router.put('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    console.log(req.body)
+    // console.log(req.body)
     const newItem = req.body
-    console.log(newItem)
+    // console.log(newItem)
     const addedItem = await Inventory.add(newItem)
+    CSSConditionRule.log(addedItem)
     res.status(200).json(addedItem)
   } catch (err) {
     res.status(500).json({ errorMessage: err })
