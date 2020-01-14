@@ -34,7 +34,7 @@ router.post('/', async (req, res) => {
     const addedItem = await Inventory.add(newItem)
     res.status(200).json(addedItem)
   } catch (err) {
-    res.status(500).json({ errormESSAGE: ERR })
+    res.status(500).json({ errorMessage: err })
   }
 })
 
